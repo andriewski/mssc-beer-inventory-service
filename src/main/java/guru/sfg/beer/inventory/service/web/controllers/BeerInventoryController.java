@@ -1,5 +1,6 @@
 package guru.sfg.beer.inventory.service.web.controllers;
 
+import guru.sfg.beer.inventory.service.domain.BeerInventory;
 import guru.sfg.beer.inventory.service.repositories.BeerInventoryRepository;
 import guru.sfg.beer.inventory.service.web.mappers.BeerInventoryMapper;
 import guru.sfg.beer.inventory.service.web.model.BeerInventoryDto;
@@ -29,9 +30,11 @@ public class BeerInventoryController {
     @GetMapping
     List<BeerInventoryDto> listBeersById(@PathVariable UUID beerId) {
         log.debug("Finding Inventory for beerId:" + beerId);
+        //todo needFix - bug with findAllByBeerId(beerId) returns 0
+        List<BeerInventory> beerInventories = beerInventoryRepository.findAll();
 
-        return beerInventoryRepository.findAllByBeerId(beerId)
-                .stream()
+        return beerInventories.stream()
+                .filter(beerInventory -> beerInventory.getBeerId().equals(beerId))
                 .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
                 .collect(Collectors.toList());
     }

@@ -4,3 +4,6 @@ spring:
     artemis:
         user: artemis
         password: simetraehcapa
+logging:
+    level:
+        guru.sfg: debug
