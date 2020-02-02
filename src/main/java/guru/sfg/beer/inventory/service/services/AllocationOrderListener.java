@@ -29,6 +29,8 @@ public class AllocationOrderListener {
             jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESULT_QUEUE,
                     new AllocationOrderResult(beerOrderDto, false, !allocationService.allocateOrder(beerOrderDto)));
         } catch (Exception e) {
+            log.error("Allocation failed for Order Id: {}", request.getBeerOrderDto().getId());
+
             jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESULT_QUEUE,
                     new AllocationOrderResult(beerOrderDto, true, false));
         }
