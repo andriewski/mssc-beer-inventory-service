@@ -5,4 +5,6 @@ import guru.sfg.brewery.model.BeerOrderDto;
 public interface AllocationService {
 
     boolean allocateOrder(BeerOrderDto beerOrderDto);
+
+    void deallocateOrder(BeerOrderDto beerOrderDto);
 }
