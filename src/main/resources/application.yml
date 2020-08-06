@@ -1,9 +1,20 @@
 logging.level.guru: debug
+
 server.port: 8082
+
 spring:
     artemis:
         user: artemis
         password: simetraehcapa
+    application:
+        name: inventory-service
+
 logging:
     level:
         guru.sfg: debug
+
+eureka:
+    client:
+        serviceUrl:
+            #            default value
+            defaultZone: http://localhost:8761/eureka
