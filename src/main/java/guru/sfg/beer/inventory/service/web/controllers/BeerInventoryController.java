@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 /**
  * Created by jt on 2019-05-31.
  */
@@ -27,7 +29,7 @@ public class BeerInventoryController {
     private final BeerInventoryRepository beerInventoryRepository;
     private final BeerInventoryMapper beerInventoryMapper;
 
-    @GetMapping
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     List<BeerInventoryDto> listBeersById(@PathVariable UUID beerId) {
         log.debug("Finding Inventory for beerId:" + beerId);
         //todo needFix - bug with findAllByBeerId(beerId) returns 0
