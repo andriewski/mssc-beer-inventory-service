@@ -10,6 +10,11 @@ spring:
         password: simetraehcapa
     zipkin:
         enabled: false
+    security:
+        user:
+#            should be env property
+            name: good
+            password: beer
 
 logging:
     level:
