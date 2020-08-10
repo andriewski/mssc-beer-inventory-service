@@ -15,6 +15,10 @@ spring:
 #            should be env property
             name: good
             password: beer
+    data:
+        jpa:
+            repositories:
+                bootstrap-mode: default
 
 logging:
     level:
