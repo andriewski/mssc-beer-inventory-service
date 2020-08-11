@@ -7,8 +7,15 @@
         <!--todo Change to my own bom file -->
         <groupId>com.github.sfg-beer-works</groupId>
         <artifactId>sfg-brewery-bom</artifactId>
-        <version>1.0.17</version>
+        <version>1.0.18</version>
     </parent>
+
+    <properties>
+        <!--set this to your docker acct name-->
+        <docker.image.prefix>plambir7</docker.image.prefix>
+        <!--Set to name of project-->
+        <docker.image.name>${project.artifactId}</docker.image.name>
+    </properties>
 
     <groupId>guru.springframework</groupId>
     <artifactId>mssc-beer-inventory-service</artifactId>
